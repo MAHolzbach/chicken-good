@@ -38,8 +38,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "Chicken Good",
       // favicon: paths.src + "/images/favicon.png",
-      template: paths.src + "/index.pug", // template file
+      template: paths.src + "/pages/home.pug", // template file
       filename: "index.html", // output file
+    }),
+    new HtmlWebpackPlugin({
+      title: "Chicken Good",
+      // favicon: paths.src + "/images/favicon.png",
+      template: paths.src + "/pages/about.pug", // template file
+      filename: "about.html", // output file
     }),
   ],
 
@@ -68,7 +74,19 @@ module.exports = {
       },
 
       // Images: Copy image files to build folder
-      { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: "asset/resource" },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        type: "asset/resource",
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              outputPath: "assets/images/",
+            },
+          },
+        ],
+      },
 
       // Fonts and SVGs: Inline files
       { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: "asset/inline" },

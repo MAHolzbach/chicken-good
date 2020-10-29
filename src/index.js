@@ -2,7 +2,7 @@
 import { example } from "./js/example";
 
 // Test import of an asset
-// import webpackLogo from "./images/webpack-logo.svg";
+// import chickenGoodLogo from "./images/chicken-good-logo.png";
 
 // Test import of styles
 import "./styles/index.scss";
